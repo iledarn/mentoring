@@ -48,3 +48,8 @@ class PhoneCatalog(models.Model):
         ordering = ["manufacturer", "device_name", "device_model"]
         verbose_name = "Catalog Phone"
         verbose_name_plural = "Catalog Phones"
+
+
+class PhoneCatalogSOPricing(PhoneCatalog):
+    class Meta:
+        proxy = True
