@@ -11,7 +11,7 @@ services:
     volumes:
       - ./phonecatalog:/opt/backend
     ports:
-      - 8000:8000
+      - 8001:8001
     depends_on:
       - db
       - wdb
@@ -20,13 +20,15 @@ services:
     image: postgres:11
     volumes:
       - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - 5832:5432
     env_file:
       - .env
 
   wdb:
     image: docker.io/kozea/wdb
     ports:
-      - "127.0.0.1:1984:1984"
+      - "127.0.0.1:1994:1984"
     init: true
 
 volumes:
