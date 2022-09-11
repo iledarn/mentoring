@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from gbwphone.models import PhoneCatalog
+from gbwphone.models import PhoneCatalog, PhoneCatalogSOPricing
 
 
 @admin.register(PhoneCatalog)
@@ -21,3 +21,12 @@ class PhoneCatalogAdmin(admin.ModelAdmin):
         return obj.id
 
     view_id.short_description = "Product ID"
+
+
+@admin.register(PhoneCatalogSOPricing)
+class PhoneCatalogSOPricingAdmin(admin.ModelAdmin):
+    list_display = [
+        "id",
+        "show_on_sales_order_pricing_tool",
+        "sales_order_used_b_stock_pricing",
+    ]
