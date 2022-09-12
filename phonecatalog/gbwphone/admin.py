@@ -27,6 +27,15 @@ class PhoneCatalogAdmin(admin.ModelAdmin):
 class PhoneCatalogSOPricingAdmin(admin.ModelAdmin):
     list_display = [
         "id",
+        "view_admin_slug",
         "show_on_sales_order_pricing_tool",
         "sales_order_used_b_stock_pricing",
     ]
+    list_editable = [
+        "show_on_sales_order_pricing_tool",
+        "sales_order_used_b_stock_pricing",
+    ]
+    def view_admin_slug(self, obj):
+        return obj.admin_slug
+    view_admin_slug.short_description = "Name"
+
